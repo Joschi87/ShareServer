@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <head>
+        <!-- Start list of links for Bootstrap4 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+        <!-- End list -->
+        <!--Settings for Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--All js function-->
+        <script>
+            window.onload = function(){
+                console.log("page loaded!");
+            }
+        </script>
+        <!--Load optional function-->
+        <script src="./js/shareServer.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <div class="dropdown">
+                <button type="button" class="btn btn-secondary" data-toggle="dropdown"><span class="oi oi-align-center"></span></button>
+                <div class="dropdown-menu">
+                    <a href="#"><button type="button" class="btn btn-secondary">Test</button></a>
+                </div>
+            </div>
+            &nbsp;<span class="navbar-brand">Share Server</span>
+        </nav><br /><br /><br /><br />
+        <div class="container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Link to share" id="link" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary" onclick="addLink()">Share</button>
+                    </div>
+                </div>
+            <p id="content"></p>
+        </div>
+        <script>loadAllLinks();</script>
+        <iframe name="iFrameRestController" style="display: none;"></iframe>
+        
+    </body>
+</html>
