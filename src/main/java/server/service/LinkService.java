@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import server.entity.LinkEntity;
+import server.lib.BasicHTMLCode;
 import server.repository.LinkRepository;
 
 @Service
@@ -24,21 +25,12 @@ public class LinkService {
 		linkRepo.saveAll(list);
 	}
 	
-	public String getAllLinks() {
+	public List<LinkEntity> getAllLinks() {
 		String output = "";
 		List<LinkEntity> allLinks = new ArrayList<>();
 		linkRepo.findAll().forEach(LinkEntity -> allLinks.add(LinkEntity));
-		Object[] objAllLinks = allLinks.toArray();
-		
-		output += "<ul class='list-group'>";
-		
-		for (int i = 0; i < objAllLinks.length; i++) {
-			output += "<li class='list-group-item'>" + objAllLinks[i] + "</li>";
-		}
-		
-		output += "</ul>";
 
-		return output;
+		return allLinks;
 	}
 	
 }

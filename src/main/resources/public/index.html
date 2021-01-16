@@ -12,20 +12,24 @@
         <!--All js function-->
         <script>
             window.onload = function(){
-                console.log("page loaded!");
+                loadAllLinks();
+                console.log("test");
             }
         </script>
         <!--Load optional function-->
         <script src="./js/shareServer.js"></script>
     </head>
     <body>
+    	<script type="text/javascript">
+        	loadAllLinks();
+    	</script>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-            <div class="dropdown">
+            <!--<div class="dropdown">
                 <button type="button" class="btn btn-secondary" data-toggle="dropdown"><span class="oi oi-align-center"></span></button>
                 <div class="dropdown-menu">
                     <a href="#"><button type="button" class="btn btn-secondary">Test</button></a>
                 </div>
-            </div>
+            </div>--> 
             &nbsp;<span class="navbar-brand">Share Server</span>
         </nav><br /><br /><br /><br />
         <div class="container">
@@ -36,8 +40,8 @@
                     </div>
                 </div>
             <p id="content"></p>
+            <iframe src="/loadLinks" style="width: 100%; height: 50%;"></iframe>
         </div>
-        <script>loadAllLinks();</script>
         <iframe name="iFrameRestController" style="display: none;"></iframe>
         
     </body>

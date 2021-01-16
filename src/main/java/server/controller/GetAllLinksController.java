@@ -15,8 +15,8 @@ public class GetAllLinksController {
 	@Autowired
 	LinkService linkService;
 
-	@GetMapping("/loadAllLinks")
-	public String getAllLinks() {
+	@GetMapping("/loadLinks")
+	public List<LinkEntity> getAllLinks() {
 		return linkService.getAllLinks();
 	}
 	

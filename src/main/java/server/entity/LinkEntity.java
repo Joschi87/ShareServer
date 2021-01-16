@@ -15,13 +15,8 @@ public class LinkEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	
 	private Integer id;
-	@NotNull
+	@NotNull(message = "No Link used!")
 	private String link;
-	
-	@Override
-	public String toString() {
-		return String.format("<button type='button' class='btn btn-secondary' onclick='cacheLink(%s)' value='%s'>%s</button>", link, link, link);
-	}
 	
 	public LinkEntity() {}
 	
