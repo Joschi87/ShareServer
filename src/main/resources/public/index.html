@@ -9,18 +9,12 @@
         <!-- End list -->
         <!--Settings for Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--All js function-->
-        <script>
-            window.onload = function(){
-                loadAllLinks();
-                console.log("test");
-            }
-        </script>
         <!--Load optional function-->
         <script src="./js/shareServer.js"></script>
     </head>
     <body>
-    	<script type="text/javascript">
+    	<!--All js function-->
+        <script type="text/javascript">
         	loadAllLinks();
     	</script>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -40,9 +34,7 @@
                     </div>
                 </div>
             <p id="content"></p>
-            <iframe src="/loadLinks" style="width: 100%; height: 50%;"></iframe>
         </div>
         <iframe name="iFrameRestController" style="display: none;"></iframe>
-        
     </body>
 </html>

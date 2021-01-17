@@ -8,11 +8,16 @@ function addLink(){
 }
 
 function loadAllLinks(){
+    var output;
     var content = new XMLHttpRequest();
     content.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
            //document.getElementById("content").innerHTML = this.responseText;
-           myJSONParser(this.responseText);
+           var obj = JSON.parse(this.responseText);
+           for(var ii = 0; ii < obj.length; ii++){
+               output += "<button type='button' class='btn btn-secondary'>" + obj[ii].link + "</button><br />";
+            }
+            document.getElementById("content").innerHTML = output;
         }
     }
     content.open("GET", "/loadLinks", true);
@@ -21,15 +26,4 @@ function loadAllLinks(){
 
 function cacheLink(link){
     console.log(link);
-    console.log("Test");
-}
-
-function myJSONParser(txtToParse){
-    var ii;
-    var output;
-    var obj = JSON.parse(txtToParse);
-    for(ii = 0; ii < obj.length; ii++){
-         output += obj[ii].link + " ,";
-    }
-    console.log(output);
 }
