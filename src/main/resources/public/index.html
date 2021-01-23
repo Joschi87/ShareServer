@@ -10,20 +10,12 @@
         <!--Settings for Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Load optional function-->
-        <script src="./js/shareServer.js"></script>
+        <script src="js/shareServer.js"></script>
+        <script src="js/cacheValue.js"></script>
     </head>
     <body>
     	<!--All js function-->
-        <script type="text/javascript">
-        	loadAllLinks();
-    	</script>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-            <!--<div class="dropdown">
-                <button type="button" class="btn btn-secondary" data-toggle="dropdown"><span class="oi oi-align-center"></span></button>
-                <div class="dropdown-menu">
-                    <a href="#"><button type="button" class="btn btn-secondary">Test</button></a>
-                </div>
-            </div>--> 
             &nbsp;<span class="navbar-brand">Share Server</span>
         </nav><br /><br /><br /><br />
         <div class="container">
@@ -33,7 +25,7 @@
                         <button type="button" class="btn btn-secondary" onclick="addLink()">Share</button>
                     </div>
                 </div>
-            <p id="content"></p>
+            <iframe src="LoadLinks.html" style="width: 100%; height: 300px;"></iframe>
         </div>
         <iframe name="iFrameRestController" style="display: none;"></iframe>
     </body>

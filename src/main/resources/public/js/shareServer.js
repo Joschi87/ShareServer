@@ -8,22 +8,17 @@ function addLink(){
 }
 
 function loadAllLinks(){
-    var output;
+    var output = "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'><br /><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script><link href='open-iconic/font/css/open-iconic-bootstrap.css' rel='stylesheet'>";
     var content = new XMLHttpRequest();
     content.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-           //document.getElementById("content").innerHTML = this.responseText;
            var obj = JSON.parse(this.responseText);
            for(var ii = 0; ii < obj.length; ii++){
-               output += "<button type='button' class='btn btn-secondary'>" + obj[ii].link + "</button><br />";
+               output += "<button type='button' class='btn btn-secondary' id=button" + ii + ">" + obj[ii].link + "</button><script>document.getElementById(\"button"+ ii +"\").addEventListener(\"click\", function(){var el = document.createElement('textarea'); el.value = "+ obj[ii].link +"; document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el);});</script><br />";
             }
-            document.getElementById("content").innerHTML = output;
+            document.write(output);
         }
     }
     content.open("GET", "/loadLinks", true);
     content.send();
-}
-
-function cacheLink(link){
-    console.log(link);
 }
