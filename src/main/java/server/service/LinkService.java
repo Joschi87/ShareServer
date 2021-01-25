@@ -33,4 +33,9 @@ public class LinkService {
 		return allLinks;
 	}
 	
+	public String deleteLink(String id) {
+		linkRepo.deleteById(Integer.parseInt(id));
+		return "<script>alert('Link are deleted!');window.close();</script>";
+	}
+	
 }
