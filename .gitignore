@@ -29,4 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+###User option###
 *.properties
+database/
+*/src/main/resources/application.properties
