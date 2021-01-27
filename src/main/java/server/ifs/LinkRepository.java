@@ -1,4 +1,4 @@
-package server.repository;
+package server.ifs;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

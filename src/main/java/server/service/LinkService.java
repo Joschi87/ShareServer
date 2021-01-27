@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import server.entity.LinkEntity;
+import server.ifs.LinkRepository;
 import server.lib.BasicHTMLCode;
-import server.repository.LinkRepository;
 
 @Service
 public class LinkService {
