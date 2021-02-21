@@ -1,4 +1,4 @@
-package server.lib;
+package server.lib.utils;
 
 public class BasicHTMLCode {
 	

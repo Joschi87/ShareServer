@@ -11,22 +11,27 @@ import server.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 	
-	@Query("update Users u set u.password = :userPassword WHERE u.id =:userID ")
+	@Query(value = "update users u set u.password =:userPassword where u.id =:userID ", nativeQuery = true)
 	public void updateAccountPassword(@Param("userID") Integer id, @Param("userPassword") String password);
 	
-	@Query("update Users u set u.username =:userUsername WHERE u.id =:userID")
+	@Query(value ="update users u set u.username =:userUsername where u.id =:userID", nativeQuery = true)
 	public void updateAccountUsername(@Param("userID") Integer id, @Param("userUsername") String username);
 	
-	@Query("update Users u set.groups =:userGroups WHERE u.id =:userID")
+	@Query(value = "update users u set.groups =:userGroups where u.id =:userID", nativeQuery = true)
 	public void updateAccountGroups(@Param("userID") Integer id, @Param("userGroups") ArrayList<String> goups);
 	
-	@Query("select groups from #{#entityName} u WHERE u.username =:userUsername")
-	public ArrayList<String> getAccountGroups(@Param("userUsername") String username);
+	@Query(value ="select groups from users u where u.username =:userUsername", nativeQuery = true)
+	public List<String> getAccountGroups(@Param("userUsername") String username);
 	
-	@Query("select id,username,groups from #{#entiyName} u WHERE u.username =:userUsername")
+	@Query(value="select id,username,groups from users u where u.username =:userUsername", nativeQuery = true)
 	public List<UserEntity> getAccount(@Param("userUsername") String username);
 	
-	@Query("select username from #{#entityName} u WHERE u.id =:userID")
-	public String getAccountUsername(@Param("userID") Integer id);
+	@Query(value="select username from users u where u.id =:userID", nativeQuery = true)
+	public List<String> getAccountUsername(@Param("userID") Integer id);
+	
+	@Query(value="select id from users u where u.username=:username", nativeQuery = true)
+	public List<String> getUserID (@Param("username") String username);
 
+	@Query(value="selcet id from users u where u.username=:username and u.password=:password", nativeQuery = true)
+	public String getIDForUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 }

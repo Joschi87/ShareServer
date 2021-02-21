@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import server.entity.LinkEntity;
 import server.ifs.LinkRepository;
-import server.lib.BasicHTMLCode;
 
 @Service
 public class LinkService {
@@ -26,7 +25,6 @@ public class LinkService {
 	}
 	
 	public List<LinkEntity> getAllLinks() {
-		String output = "";
 		List<LinkEntity> allLinks = new ArrayList<>();
 		linkRepo.findAll().forEach(LinkEntity -> allLinks.add(LinkEntity));
 

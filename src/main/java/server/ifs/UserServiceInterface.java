@@ -3,24 +3,28 @@ package server.ifs;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import server.entity.UserEntity;
 
-public interface UserServiceInterface{
+public interface UserServiceInterface {
 	
-	public void createAccount(String username, String password, ArrayList<String> groups);
+	public String createAccount(String username, String password, HttpServletRequest request);
 	
-	public void updatePassword(Integer id, String password);
+	public void updatePassword(String username, String password);
 	
-	public void updateUsername(Integer id, String username);
+	public void updateUsername(String usernameNew, String usernameOld);
 	
-	public void updateGroups(String username, ArrayList<String> groups);
+	public void updateGroups(String username, String groups);
 	
-	public void deleteAccount(Integer id);
+	public void deleteAccount(String username, String adminUsername);
 	
 	public ArrayList<String> getGroups(String username);
 	
-	public List<UserEntity> getAccount();
+	public List<UserEntity> getAccounts();
 	
-	public String getUsername(Integer id);
-
+	public boolean checkUsernameAsEmpty(String username);
+	
+	public String login(String username, String password, HttpServletRequest request, HttpServletResponse response);
 }
