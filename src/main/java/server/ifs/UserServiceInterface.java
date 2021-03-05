@@ -6,11 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.ResponseEntity;
+
 import server.entity.UserEntity;
 
 public interface UserServiceInterface {
 	
-	public String createAccount(String username, String password, HttpServletRequest request);
+	public ResponseEntity<String> createAccount(String username, String password, HttpServletRequest request);
 	
 	public void updatePassword(String username, String password);
 	
@@ -26,5 +28,5 @@ public interface UserServiceInterface {
 	
 	public boolean checkUsernameAsEmpty(String username);
 	
-	public String login(String username, String password, HttpServletRequest request, HttpServletResponse response);
+	public ResponseEntity<String> login(String username, String password, HttpServletRequest request, HttpServletResponse response);
 }

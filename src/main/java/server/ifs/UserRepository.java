@@ -34,4 +34,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 
 	@Query(value="selcet id from users u where u.username=:username and u.password=:password", nativeQuery = true)
 	public String getIDForUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+	public Object findOneByUsername(String username);
 }

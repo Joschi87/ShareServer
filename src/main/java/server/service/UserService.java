@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import server.entity.UserEntity;
@@ -22,9 +24,8 @@ public class UserService implements UserServiceInterface{
 	UserRepository userRepository;
 
 	@Override
-	public String createAccount(String username, String password, HttpServletRequest request) {
+	public ResponseEntity<String> createAccount(String username, String password, HttpServletRequest request) {
 		ArrayList<String> groupArray = new ArrayList<String>();
-		String output = "";
 		String key = ShareServerCookies.getKey(request);
 		
 		groupArray.add("No Groups");
@@ -35,11 +36,10 @@ public class UserService implements UserServiceInterface{
 		userRepository.saveAll(list);
 		
 		if(checkUsernameAsEmpty(username) == true) {
-			output = "<script>alert('Register successful!');window.close();</script>";
+			return new ResponseEntity<String>("<script>alert('Register successful!');window.close();</script>", HttpStatus.OK);
 		}else {
-			output = "<script>alert('Register failed!');window.close();</script>";
+			return new ResponseEntity<String>("<script>alert('Register failed!');window.close();</script>", HttpStatus.CONFLICT);
 		}
-		return output;
 	}
 
 	@Override
@@ -85,13 +85,8 @@ public class UserService implements UserServiceInterface{
 		return output;
 	}
 	
-	public String login(String username, String password, HttpServletRequest request, HttpServletResponse response) {
-		String output ="";
-		if(!userRepository.getIDForUsernameAndPassword(username, password).isEmpty()) {
-			output = "<script>alert('Login successful!');window.close();</script>";
-		}else {
-			output = "<script>alert('Login failed!');window.close();</script>";
-		}
-		return output;
+	public ResponseEntity<String> login(String username, String password, HttpServletRequest request, HttpServletResponse response) {
+	
+		return new ResponseEntity<String>("", HttpStatus.CONTINUE);
 	}
 }
