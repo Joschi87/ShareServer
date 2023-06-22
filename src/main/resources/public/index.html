@@ -27,11 +27,13 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a href="javascript:window.location.href=window.location.href"><button class="btn btn-outline-primary">Refresh</button></a></li>
             </ul>
-            <div id="content"></div>
+            <div id="history">
+                <div class="overflow-auto">
+                    <ul class="list-group">
+                        <span id="history-content"></span>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <iframe name="iFrameRestController" style="display: none;"></iframe>
-        <script type="text/javascript">
-        	loadAllLinks();
-    	</script>
     </body>
 </html>
